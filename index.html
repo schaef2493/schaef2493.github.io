@@ -15,63 +15,24 @@
         <script type="text/javascript" src="js/adopt.js"></script>
         <script>
         $(document).ready(function() {
+            var words = ['complex', 'convoluted', 'messy', 'multifaceted', 'ambitious', 'chaotic', 'systematic'];
+            var word = words[Math.floor(Math.random()*words.length)];
+            $('#textureAnimation').text(word);
+
             // Set intro height
             var viewportHeight = window.innerHeight;
-            var navHeight = $('#header').height();
             var introHeight = $('#intro').height();
 
-            if (viewportHeight > (navHeight + introHeight)) {
+            if (viewportHeight > (introHeight)) {
                 if (viewportHeight > 1000) {
                     viewportHeight = 1000;
                 }
 
-                var newIntroHeight = ((viewportHeight - navHeight - introHeight) + introHeight) + 'px';
+                var newIntroHeight = ((viewportHeight - introHeight) + introHeight) + 'px';
 
                 // Resize intro
                 $('#intro').height(newIntroHeight);
             }
-
-            // Add fancy header
-            var nav = document.getElementById("nav");
-            var headroom  = new Headroom(nav);
-            headroom.init(); 
-
-            // Add fancy links
-            $('#homeLink').scrollTo();
-            $('#robotLink').scrollTo();
-            $('#zephyrLink').scrollTo();
-            $('#coursemarkLink').scrollTo();
-
-            // Add sliders
-            $('.slider').slick({
-              dots: true
-            });
-
-            // Add live updating nav
-            $('#intro').bind('inview', function (event, visible) {
-              if (visible == true) {
-                $('.navInner li').removeClass('active');
-                $('#homeLink').parent().addClass('active');
-              }
-            });
-            $('#robot').bind('inview', function (event, visible) {
-              if (visible == true) {
-                $('.navInner li').removeClass('active');
-                $('#robotLink').parent().addClass('active');
-              }
-            });
-            $('#zephyr').bind('inview', function (event, visible) {
-              if (visible == true) {
-                $('.navInner li').removeClass('active');
-                $('#zephyrLink').parent().addClass('active');
-              }
-            });
-            $('#coursemark').bind('inview', function (event, visible) {
-              if (visible == true) {
-                $('.navInner li').removeClass('active');
-                $('#coursemarkLink').parent().addClass('active');
-              }
-            });
 
             // Adopt orphans
             $('h1, h2, h3, h4, h5, h6, p').adopt();
@@ -89,17 +50,6 @@
     </head>
      
     <body>
-        <div id="nav">
-            <div class="navInner">
-                <ul>
-                    <li class="active"><a href="#home" id="homeLink">Kevin Schaefer</a></li>
-                    <li><a href="#robot" id="robotLink">Robot Arm</a></li>
-                    <li><a href="#coursemark" id="coursemarkLink">Peer Grading</a></li>
-                    <li><a href="#zephyr" id="zephyrLink">Special Education</a></li>
-                    <li><a href="mailto:kevinjschaefer@gmail.com"><img src="img/email.png"></a></li>
-                </ul>
-            </div>
-        </div>
 
         <div class="grid-container" id="home">
             <div id="intro" class="grid-100">
@@ -109,362 +59,14 @@
                         <span id="textureAnimation">complex</span>
                         <br>design problems.
                     </h1>
-                    <h3>2014&nbsp;&nbsp;&nbsp;Product Designer at Facebook</h3>
+                    <h3>2015&nbsp;&nbsp;&nbsp;Product Designer on Facebook Education Initiative</h3>
+                    <h3>2014&nbsp;&nbsp;&nbsp;Product Designer on Facebook Events</h3>
                     <h3>2014&nbsp;&nbsp;&nbsp;Graduated from Carnegie Mellon</h3>
                     <h3>2013&nbsp;&nbsp;&nbsp;User Experience Intern at Apple</h3>
                 </div>
             </div>
         </div>
 
-        <div class="sectionWrapper grey" id="robot">
-            <div class="grid-container">
-                <div class="grid-100">
-                    <h1>Improving the usability of an assistive robotic arm</h1>
-                </div>
-
-                <div class="grid-33">
-                    <figure>
-                        <img src='img/jaco.png' style="width: 89%; height: 580px; margin-top: -40px;">
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>Kinova Robotics recently launched MICO, an innovative wheelchair-mounted robotic arm with a two-fingered hand. MICO was <strong>designed to assist people with paralysis</strong> caused by various neuromuscular disorders. However, its <strong>current control mechanisms are severely lacking in usability</strong> and learnability. The vision of this four month project was to understand the needs of MICO's users, improve its control interface, and develop a vision of where future work should focus.</p>
-
-                    <p>Through talking with people who suffered from spinal cord injuries, we learned that <strong>routine activities of daily living are a constant challenge</strong>. Of those we talked to, most had no control of their arms, except for some level of fine motor control in their fingers. This left people unable to do vital tasks such as drinking a glass of water or opening a door.</p>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2>"Independence is a constant struggle. Getting around means depending on others. Using the bathroom is now a matter of life or death."</h2>
-                </div>
-
-                <div class="grid-33">
-                    <figure>
-                        <img src='img/joystick.jpg'>
-                        <img src='img/joystick2.jpg' class="multi">
-                        <figcaption class="bottom">Buttons on top of the joystick switch between three different control modes, with no indication of their active state.</figcaption>
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>Empowered with real stories about the needs of our users, we began studying the shortcomings of the existing control interface, which uses a <strong>wheelchair-mounted joystick</strong> and allows people to move the arm through various axis, depending on the active control mode.</p>
-
-                    <p>We had our peers attempt to use MICO to perform a basic task, such as picking up a bottle. We heard things like "That was absolutely agonizing." We learned that <strong>the main challenge in using the arm is having to control it through low-level movements</strong> (such as "move left" or "move down"), which conflicts with how people expect to interact with their environment. In fact, controlling the arm was so <strong>cognitively demanding</strong> that it was hard to even carry a conversation at the same time.</p>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2>We learned that people want the arm to feel like a natural extension of their body.</h2>
-                </div>
-
-                <div class="grid-33">
-                    <figure style="padding-top: 20px;">
-                        <figcaption class="top">To determine the right level of abstraction in control, we conducted numerous  experiments where people were asked to control a fake robot.</figcaption>
-                        <img src='img/joystick.jpg'>
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>We decided the best way to achieve this goal would be to <strong>empower people to control the arm through high level commands</strong> (such as "open the door"). This would free people to think about the task at hand, rather than how to accomplish it.</p>
-
-                    <p>We began exploring ways of allowing people to <strong>record and play back their most routine daily tasks</strong>. We intended this solution to work in tandem with a person's existing wheelchair control so it could be customized to an individual's unique needs.</p> 
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>I developed a working prototype of our recording feature. Connecting our prototype to the actual arm gave us a much more accurate understanding of its strengths and weaknesses.</p>
-
-                    <p>The control was intended to be mounted on one side of the user's wheelchair.</p>
-                </div>
-
-                <div class="grid-66">
-                    <iframe width="605" height="370" src="//www.youtube.com/embed/bptIPguj1jE?rel=0" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <div class="grid-33">
-                    &nbsp;
-                </div>
-
-                <div class="grid-66">
-                    <p>Through user studies, we found that <strong>no one preferred using the recorded tasks.</strong> People said that they didn't feel in control when playing back a task and often failed to complete the task because they had <strong>no way to make live adjustments to recordings.</strong></p>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2>We had to make a decision. Was recording tasks inherently flawed? ... Or could we<br>improve our implementation?</h2>
-                </div>
-
-                <div class="grid-33">
-                    <figure>
-                        <img src='img/redesign.jpg'>
-                        <figcaption class="bottom">Our redesign allowed the touchscreen to only be used for task selection and recording. Oversized touch targets allowed for use with limited mobility.</figcaption>
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>We decided to push forward. After studying the results of our user studies, we went back to the drawing board. To help people feel more in control during playback, we redesigned the control to <strong>use the wheelchair's joystick to advance or rewind playback</strong>. If the joystick was released, playback would immediately pause. This also lent itself to a <strong>clearer conceptual model,</strong> where the joystick is exclusively used to control the arm.</p>
-
-                    <p>To allow users to make adjustments during playback, <strong>we introduced arm mode control buttons</strong> onscreen. If tapped during playback, the arm would <strong>switch into a manual control mode to allow for adjustments</strong>. Then the recording could be immediately resumed.</p>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>To evaluate our redesign, we conducted a larger scale study with ten people. Each person was asked to move a bottle using the existing control (direct manipulation) and our redesigned control (automated task), while having to make adjustments.</p>
-
-                    <p>To measure cognitive demand, we had participants complete a NASA Task Load Index survey between trials.</p>
-                </div>
-
-                <div class="grid-66">
-                    <iframe width="605" height="370" src="//www.youtube.com/embed/bc3Z7TkNZ7s?rel=0" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2 style="margin-top:0px">The results were dramatic. Our redesign made people feel much less cognitively demanded, frustrated, and that they exerted less effort.</h2>
-                </div>
-
-                <div class="grid-33">
-                    &nbsp;
-                </div>
-
-                <div class="grid-66">
-                    <p>These results were <strong>corroborated through our follow up interviews.</strong> One 22 year old, Jason, said "It was definitely easier to use the recording. The joystick was difficult to use in comparison," a sentiment that was shared by many participants. Further, <strong>all participants were able to successfully make adjustments</strong> to a recording and complete the task.</p>
-
-                    <p>Overall, we believe that our evidence offers an overwhelming amount of support for introducing automated tasks as a way to <strong>dramatically lower the cognitive demand</strong> required to use the MICO arm.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="sectionWrapper" id="coursemark">
-            <div class="grid-container">
-                <div class="grid-100">
-                    <h1>Improving peer grading in a university course</h1>
-                </div>
-
-                <div class="grid-33">
-                    <figure>
-                        <img src='img/fieldtest2.jpg'>
-                        <img src='img/fieldtest4.jpg' class="multi">
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>User-Centered Research and Evaluation is one of the largest classes taught at CMU's HCI Institute. Each week, course <strong>instructors are tasked with grading hundreds of papers,</strong> draining them of efficiency.</p>
-
-                    <p>Previously, instructors tried to reduce their workload by <strong>instituting a peer grading system,</strong> where students anonymously graded their peers. Despite the promise of saving time and being of educational benefit to students, <strong>peer grading was failing,</strong> largely because of flaws in the current software.</p>
-
-                    <p>In this project, we identified specific reasons the current system was failing and <strong>developed an improved peer grading system called Coursemark.</strong></p>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2>We began by identifying breakdowns in processes. Not user interfaces.</h2>
-                </div>
-
-                <div class="grid-33">
-                    <figure>
-                        <img src='img/flow1.jpg'>
-                        <figcaption class="bottom">Exploring possible redesigns of the peer grading process</figcaption>
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>By <strong>interviewing students and instructors</strong> we learned about breakdowns in the current process. Two things stood out.</p>
-
-                    <p>In the current system, <strong>students are required to complete quality assessments</strong> of the evaluations they received. We learned that very few students took these seriously or believed they were of educational value.</p>
-
-                    <p>Second, we learned that <strong>students regularly dispute their grades.</strong> After they receive their grade, they'll often email instructors, attempting to direct their attention to a specific peer review they received.</p>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2>We also learned that students are extremely skeptical about the integrity of peer grading.</h2>
-                </div>
-
-                <div class="grid-33">
-                    &nbsp;
-                </div>
-
-                <div class="grid-66">
-                    <p>Despite being proven to be as reliable as instructor grading, students are skeptical about peer grading. This was made significantly worse by the current software's <strong>confusing, error-prone interface.</strong></p>
-
-                    <p>To strengthen student confidence, we decided that <strong>every aspect of our system must serve to strengthen student trust,</strong> from the brand to the language used in the interface.</p>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>I began designing Coursemark by exploring various navigation schemes and application layouts.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider">
-                      <div><img src="/img/layout.png"></div>
-                      <div><img src="/img/layout2.png"></div>
-                      <div><img src="/img/layout3.png"></div>
-                      <div><img src="/img/layout4.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>To more efficiently handle grade disputes, we designed Coursmark to offer students the ability to dispute their grade inline, which will then be visible to the instructor.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider">
-                      <div><img src="/img/dispute.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>Rather than requiring students to complete quality assessments of the reviews they receive, Coursemark allows instructors to manually approve student grades.</p>
-                    <p>Grade approvals also serve to increase student trust and confidence.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider">
-                      <div><img src="/img/approve.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>I designed a logo aimed at feeling trustworthy and academic, yet approachable.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider">
-                      <div><img src="/img/logo.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>We spent months turning Coursemark into a real piece of software with Ruby on Rails.</p>
-
-                    <p>Shown here are screenshots of the finished web app.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider" style="max-height: 370px">
-                      <div><img src="/img/coursemark.png"></div>
-                      <div><img src="/img/coursemark2.png"></div>
-                      <div><img src="/img/coursemark3.png"></div>
-                      <div><img src="/img/coursemark4.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33">
-                    &nbsp;
-                </div>
-
-                <div class="grid-66">
-                    <p>Coursemark was so effective in improving peer grading that it was <strong>adopted by the HCI Institute for use with over 100 students</strong> next semester.</p>
-
-                    <p>In addition to delivering a fully redesigned peer grading system, we provided the HCI Institute with a set of <strong>guidelines for ensuring a successful deployment</strong> of Coursemark and continuing to build student trust in peer grading.</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="sectionWrapper grey" id="zephyr">
-            <div class="grid-container">
-                <div class="grid-100">
-                    <h1>Digitizing behavioral data collection in special education</h1>
-                </div>
-
-                <div class="grid-33">
-                    <figure>
-                        <img src='img/datasheets.png'>
-                        <figcaption class="bottom">Teachers use numerous forms to collect data by hand</figcaption>
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>In classrooms focused on the needs of children with autism, <strong>teachers tailor performance goals to each of their students.</strong> To track progress, teachers are required to collect an enormous amount of individualized behavioral data.</p>
-
-                    <p><strong>Teachers collect behavioral data with pen and paper</strong>, creating a mountain of paperwork. After school, they spend several hours simply hand graphing data points and tracking student progress.</p>
-
-                    <p>We conducted <strong>extensive ethnography</strong> in these schools to identify why previous attempts to digitize data collection had failed. Informed by our findings, we <strong>designed a prototype iPad app,</strong> Zephyr, aimed at improving data collection.</p>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2>We conducted over one hundred hours of observation and interviews in seven schools.</h2>
-                </div>
-
-                <div class="grid-33">
-                    <figure>
-                        <img src='img/datamodel.jpg'>
-                        <figcaption class="bottom">We created numerous organizational models to identify breakdowns.</figcaption>
-                    </figure>
-                </div>
-
-                <div class="grid-66">
-                    <p>We learned from speaking with teachers that we should <strong>not design a tool that attempts to outsmart the teacher,</strong> but rather a tool that recognizes the importance of human expertise in making decisions.</p>
-
-                    <p>We identified several reasons that past attempt to digitize data collection processes had failed. First, <strong>data needs are complex and not standardized</strong> between classrooms. No current software had been designed to support this level of complexity and customization. Second, it can be <strong>difficult to collect data while dealing with frequent interruptions</strong> in the classroom.</p>
-                </div>
-
-                <div class="grid-85 prefix-15">
-                    <h2>"Data sheets are never consistent. I often won't know how to read someone else's data sheet."</h2>
-                </div>
-
-                <div class="grid-33">
-                    &nbsp;
-                </div>
-
-                <div class="grid-66">
-                    <p>We began designing an iPad app aimed at supporting this type of advanced behavioral data collection. The goal of this prototype was primarily to begin to explore how such nuanced, complex data could be collected on an iPad.</p>
-
-                    <p>The app was meant to be used by a teacher while working one-on-one with a student.</p>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>A metaphor of digital note cards helped make abstract data collection feel more tangible.</p>
-
-                    <p>They also afforded behaviors such as sorting and skipping, introducing a level of flexibility similar to that offered by paper.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider big" style="max-height: 500px">
-                      <div><img src="/img/zephyr.png"></div>
-                      <div><img src="/img/zephyr4.png"></div>
-                      <div><img src="/img/zephyr3.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>Encapsulating data in digital note cards also allowed teachers to make changes to just a specific part of data collection by flipping the card over.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider" style="max-height: 470px">
-                      <div><img src="/img/zephyr2.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>A global commenting feature allowed teachers to create notes without interrupting data collection activities.</p>
-
-                    <p>Notes could even be tagged with the data collection activities they pertained to.</p>
-                </div>
-
-                <div class="grid-66">
-                    <div class="slider" style="max-height: 470px">
-                      <div><img src="/img/zephyr5.png"></div>
-                    </div>
-                </div>
-
-                <div class="grid-33 videoCaption">
-                    <p>To better explain the scope of our work, we created a short video.</p>
-                </div>
-
-                <div class="grid-66">
-                    <iframe width="605" height="370" src="//www.youtube.com/embed/Mhux_riD2og?rel=0" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <div class="grid-33">
-                    &nbsp;
-                </div>
-
-                <div class="grid-66">
-                    <p>To share our research findings, <a href="http://dl.acm.org/citation.cfm?id=2466416.2466436">I co-authored a paper at ACM CHI,</a> the premier venue for human-computer interaction research.</p>
-
-                    <p>Since designing this prototype, I continued to work on the project for two years in various capacities. We later carried out a six-month deployment in a local school.</p>
-                </div>
-
-            </div>
-        </div>
-        
         <script>
 				  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
