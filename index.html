@@ -20,20 +20,23 @@
             $('#textureAnimation').text(word);
 
             // Set intro height
+            var navHeight = $('#header').height();
             var viewportHeight = window.innerHeight;
             var introHeight = $('#intro').height();
 
-            if (viewportHeight > (introHeight)) {
+            if (viewportHeight > (navHeight + introHeight)) {
                 if (viewportHeight > 1000) {
                     viewportHeight = 1000;
                 }
 
-                var newIntroHeight = ((viewportHeight - introHeight) + introHeight) + 'px';
+                var newIntroHeight = ((viewportHeight - navHeight - introHeight) + introHeight) + 'px';
 
                 // Resize intro
                 $('#intro').height(newIntroHeight);
             }
 
+            // Add fancy header
+            var nav = document.getElementById("nav");
             // Adopt orphans
             $('h1, h2, h3, h4, h5, h6, p').adopt();
 
@@ -50,6 +53,15 @@
     </head>
      
     <body>
+        <div id="nav">
+            <div class="navInner">
+                <ul>
+                    <li class="active"><a href="#home" id="homeLink">Kevin Schaefer</a></li>
+                    <li><a href="mailto:kevinjschaefer@gmail.com">Email</a></li>
+                    <li><a href="http://facebook.com/kevinschaefer">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
 
         <div class="grid-container" id="home">
             <div id="intro" class="grid-100">
