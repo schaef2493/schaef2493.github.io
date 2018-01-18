@@ -134,7 +134,7 @@ h5 {
 
     .project {
       height: 500px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .thumbnail {
@@ -147,5 +147,11 @@ h5 {
       align-items: center;
       text-align: center;
       justify-content: center;
+      flex-direction: column-reverse;
+    }
+
+    .description h5 {
+      margin-top: 10px;
+      margin-bottom: -10px;
     }
 }
