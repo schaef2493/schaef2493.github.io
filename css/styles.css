@@ -41,7 +41,7 @@ h5 {
 
 .page {
   min-height: 100%;
-  min-width: 400px;
+  min-width: 375px;
   padding: 0;
   margin: 0;
   display: flex;
@@ -127,6 +127,11 @@ h5 {
 }
 
 @media only screen and (max-width: 889px) {
+    .page {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
     .intro {
       text-align: center;
       justify-content: center;
@@ -137,13 +142,20 @@ h5 {
       margin-bottom: 25px;
     }
 
+    h3 {
+      margin-right: 30px;
+      margin-left: 30px;
+    }
+
     .thumbnail {
+      width: auto;
       height: 400px;
     }
 
     .description {
       height: 100px;
       padding-left: 0px !important;
+      padding-right: 0px !important;
       align-items: center;
       text-align: center;
       justify-content: center;
@@ -153,5 +165,7 @@ h5 {
     .description h5 {
       margin-top: 10px;
       margin-bottom: -10px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
 }
