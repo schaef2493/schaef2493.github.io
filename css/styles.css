@@ -135,10 +135,11 @@ h5 {
     .intro {
       text-align: center;
       justify-content: center;
+      height: 570px;
     }
 
     .project {
-      height: 500px;
+      height: 450px;
       margin-bottom: 25px;
     }
 
@@ -149,7 +150,11 @@ h5 {
 
     .thumbnail {
       width: auto;
-      height: 400px;
+      height: 300px;
+    }
+
+    .thumbnail img {
+      width: calc(100% - 50px);
     }
 
     .description {
