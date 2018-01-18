@@ -69,7 +69,7 @@ h5 {
   flex-direction: row;
   flex-wrap: wrap;
   height: 436px;
-  margin-bottom: 180px;
+  margin-bottom: 250px;
 }
 
 .project:nth-child(odd) {
