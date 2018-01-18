@@ -1,110 +1,151 @@
+<!DOCTYPE html>
+
 <html>
     <head>
         <!-- Github Hosted -->
         <title>Kevin Schaefer | Product Designer</title>
-        <link rel="stylesheet" type="text/css" href="css/unsemantic-grid-responsive.css">
-        <link rel="stylesheet" type="text/css" href="css/slick.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link href="https://fonts.googleapis.com/css?family=Eczar:700|Work+Sans" rel="stylesheet">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>
-        $(document).ready(function() {
-            // Set intro height
-            var navHeight = $('#header').height();
-            var viewportHeight = window.innerHeight;
-            var introHeight = $('#intro').height();
-
-            if (viewportHeight > (navHeight + introHeight)) {
-                if (viewportHeight > 1000) {
-                    viewportHeight = 1000;
-                }
-
-                var newIntroHeight = ((viewportHeight - navHeight - introHeight) + introHeight) + 'px';
-
-                // Resize intro
-                $('#intro').height(newIntroHeight);
-            }
-
-            var shape = function (xPos, yPos, offset, elementID) {
-                this.elementID = elementID;
-                this.step = 5;
-                this.height = 0;
-                this.hOffset = offset;
-                this.wOffset = offset;
-                this.yOn = 0;
-                this.xOn = 0;
-                this.interval;
-                this.xPos = xPos;
-                this.yPos = yPos;
-            }
-
-            function changePos(shapeEl) {
-                shapeEl.height = window.innerHeight;
-                shapeEl.width = window.innerWidth;
-                document.getElementById(shapeEl.elementID).style.top = shapeEl.yPos + window.pageYOffset;
-                document.getElementById(shapeEl.elementID).style.left = shapeEl.xPos + window.pageXOffset;
-
-                // Going down
-                if (shapeEl.yOn) {
-                  shapeEl.yPos = shapeEl.yPos + shapeEl.step;
-                // Going up
-                } else {
-                  shapeEl.yPos = shapeEl.yPos - shapeEl.step;
-                }
-
-                if (shapeEl.yPos < 0) {
-                  shapeEl.yOn = 1;
-                  shapeEl.yPos = 0;
-                }
-
-                if (shapeEl.yPos >= (shapeEl.height - shapeEl.hOffset)) {
-                  shapeEl.yOn = 0;
-                  shapeEl.yPos = (shapeEl.height - shapeEl.hOffset);
-                }
-
-                // Going right
-                if (shapeEl.xOn) {
-                  shapeEl.xPos = shapeEl.xPos + shapeEl.step;
-                // Going left
-                } else {
-                  shapeEl.xPos = shapeEl.xPos - shapeEl.step;
-                }
-
-                if (shapeEl.xPos < 0) {
-                  shapeEl.xOn = 1;
-                  shapeEl.xPos = 0;
-                }
-
-                if (shapeEl.xPos >= (shapeEl.width - shapeEl.wOffset)) {
-                  shapeEl.xOn = 0;
-                  shapeEl.xPos = (shapeEl.width - shapeEl.wOffset);
-                }
-            }
-
-            var shape1 = new shape(0, 0, 450, 'shape1');
-            interval = setInterval( function(){ changePos(shape1); }, 40);
-
-            var shape2 = new shape(650, 500, 450, 'shape2');
-            interval = setInterval( function(){ changePos(shape2); }, 40);
-        });
-        </script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,800,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
     </head>
      
     <body>
-        <div class="shape" id="shape1"></div>
-        <div class="shape" id="shape2"></div>
-
-        <div class="grid-container" id="home">
-            <div id="intro" class="grid-100">
-                <div id="introInner">
-                    <h1>Kevin Schaefer</h1>
-                    <h3>2017&nbsp;&nbsp;&nbsp;Product Designer at Chan Zuckerberg Initiative</h3>
-                    <h3>2015&nbsp;&nbsp;&nbsp;Product Designer at Facebook</h3>
-                    <h3>2014&nbsp;&nbsp;&nbsp;Graduated from Carnegie Mellon</h3>
-                    <h3 id="contact"><a href="mailto:kevinjschaefer@gmail.com">Contact</a></h3>
+        <div class="page">
+            <div class="container">
+                <div class="intro">
+                    <div>
+                        <h1>Kevin Schaefer</h1>
+                        <h3>2018&nbsp;&nbsp;&nbsp;Product Designer at the Chan Zuckerberg Initiative</h3>
+                        <h3>2014&nbsp;&nbsp;&nbsp;Product Designer at Facebook</h3>
+                        <h3>2014&nbsp;&nbsp;&nbsp;Graduated from Carnegie Mellon</h3>
+                        <h3 id="contact"><a href="mailto:kevinjschaefer@gmail.com">Contact</a></h3>
+                    </div>
+                </div>
+                <div class="project">
+                    <div id="thumb1" class="thumbnail">
+                        <img src="img/thumb1.png" />
+                    </div>
+                    <div class="description">
+                        <div>
+                            <h4>Summit Learning</h4>
+                            <h5>Helping students track their&nbsp;progress</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div id="thumb2" class="thumbnail">
+                        <!--<video width="100%" height="100%" loop autoplay="autoplay">
+                          <source src="img/video2.mov" type="video/mp4">
+                        </video>-->
+                        <img src="img/thumb2.png" />
+                    </div>
+                    <div class="description">
+                        <div>
+                            <h4>Summit Learning</h4>
+                            <h5>Helping students build&nbsp;self&#8209;awareness</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div id="thumb3" class="thumbnail">
+                        <img src="img/thumb3.png" />
+                    </div>
+                    <div class="description">
+                        <div>
+                            <h4>Summit Learning</h4>
+                            <h5>Helping teachers efficiently give&nbsp;feedback</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div id="thumb4" class="thumbnail bottom">
+                        <img src="img/thumb4.png" />
+                    </div>
+                    <div class="description">
+                        <div>
+                            <h4>Facebook</h4>
+                            <h5>Making event invites feel more&nbsp;personal</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div id="thumb5" class="thumbnail">
+                        <img src="img/thumb5.png" />
+                    </div>
+                    <div class="description">
+                        <div>
+                            <h4>Facebook</h4>
+                            <h5>Simplifying the privacy system of&nbsp;events</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div id="thumb6" class="thumbnail bottom">
+                        <img src="img/thumb6.png" />
+                    </div>
+                    <div class="description">
+                        <div>
+                            <h4>Facebook</h4>
+                            <h5>Making it more fun to create an&nbsp;event</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <script>
+        $(document).ready(function() {
+            var thumbMids = []
+            var currentClosestThumb = 1;
+
+            function computeThumbMids() {
+                for(var i = 1; i <= 6; i++) {
+                    var thumbRect = $('#thumb' + i)[0].getBoundingClientRect();
+                    var midY = thumbRect.y + (thumbRect.height/2);
+                    thumbMids.push(midY);
+                }
+            }
+
+            computeThumbMids();
+
+            function moveLogic(mid) {
+                var thumbDistances = [];
+                
+                for(var i = 1; i <= 6; i++) {
+                    var dist = Math.abs(thumbMids[i-1] - mid);
+                    thumbDistances.push(dist);
+                }
+
+                var minDistance = Math.min.apply(null, thumbDistances);
+                var closestThumb = 1;
+
+                for(var i = 1; i <= 6; i++) {
+                    if (minDistance == thumbDistances[i-1]) {
+                        closestThumb = i
+                    }
+                }
+
+                if (currentClosestThumb != closestThumb) {
+                    $('#thumb' + currentClosestThumb).toggleClass('active');
+                    $('#thumb' + closestThumb).toggleClass('active');
+                    currentClosestThumb = closestThumb;
+                }
+            }
+
+            /*$(document).scroll(function() {
+              var currentScrollY = $(document).scrollTop();
+              var currentHeight = $(window).height();
+              var currentMidpoint = currentScrollY + (currentHeight/2);
+              moveLogic(currentMidpoint);
+            });
+
+            $(window).resize(function() {
+              computeThumbMids();
+            });*/
+
+        });
+        </script>
 
         <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
