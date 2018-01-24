@@ -152,7 +152,7 @@ h5 {
 
     .project {
       height: 450px;
-      margin-bottom: 0px;
+      margin-bottom: 10px;
     }
 
     .project:last-child {
