@@ -1,0 +1,77 @@
+html {
+	background: black;
+	width: 100%;
+	height: 100%;
+	color: #FFF;
+}
+
+body {
+	padding: 35px;
+	font-family: 'Space Mono', monospace;
+	font-size: 14px;
+}
+
+h1, h2 {
+	margin: 0;
+	font-size: 14px;
+	position: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+  h1, h2 {
+    position: static;
+  }
+
+  .intro {
+  	margin-top: 50px;
+  	margin-bottom: 75px;
+  }
+
+  body {
+  	padding: 20px;
+  }
+}
+
+a {
+	color: #808080;;
+	text-decoration: none;
+}
+
+.title {
+	top: 62px;
+}
+
+.email {
+	bottom: 35px;
+	color: #808080;
+}
+
+.divider {
+	width: 100%;
+	height: 3px;
+	background: #FFF;
+	margin-top: 63px;
+	margin-bottom: 55px;
+}
+
+.project {
+	background: #E3E3D8;
+	color: #808080;
+}
+
+.project img {
+	width: 100%;
+	height: auto;
+}
+
+.left, .right {
+	margin-top: 10px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
